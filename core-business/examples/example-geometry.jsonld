@@ -1,0 +1,22 @@
+{
+  "@context": "https://raw.githubusercontent.com/SEMICeu/Core-Business-Vocabulary/master/releases/2.00/context/core-business-ap.jsonld",
+  "@graph": [
+		{
+			"@id": "http://www.example.com/le/123",
+			"@type": "LegalEntity",
+			"legalName": 
+				{
+					"@value": "ArchITES",
+					"@language": "en"
+				}
+			,
+			"registeredAddress": "http://www.example.com/address/abc",
+			"companyType": "http://www.example.com/companyType/sarl"
+		},
+        {
+			"@id": "http://www.example.com/address/abc",
+			"@type": "Address",
+			"fullAddress": "27, Rue Adrienne Bolland, 44230 Saint-Sebastien-Sur-Loire"
+		}
+	]
+}
