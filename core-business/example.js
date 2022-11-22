@@ -63,7 +63,12 @@ $(document).ready(function () {
 	var examples = [];
 	var editors = [];
 
-	$("#examples h3").each(function(index){
+    var examples_id = "#examples";
+	var examples_class = "h3";
+	var folder = "./examples/";
+	var $examples = $(examples_id);
+
+	$examples.children(examples_class).each(function(index){
 		exampleid = this.id;
 		examples.push(exampleid); 
 		var text = example_structure(exampleid);
@@ -84,7 +89,6 @@ $(document).ready(function () {
 			});
 		});
 
-        folder = "./examples/";
         path_to_file = folder + exampleid;
 		loadFile(editors[index].CM0, path_to_file + ".ttl");
 		loadFile(editors[index].CM1, path_to_file + ".jsonld");
@@ -93,7 +97,7 @@ $(document).ready(function () {
 
 	$("button.copyturtletoclipboard").on({
 		"click": function() {
-			var index = $("#examples").children(".tabs").index($(this).parent().parent());
+			var index = $examples.children(".tabs").index($(this).parent().parent());
 			texttocopy = editors[index].CM0.getValue()
 			navigator.clipboard.writeText(texttocopy);
 			$(this).tooltip({ items: "#" + this.id, content: "Copied !"});
@@ -105,7 +109,7 @@ $(document).ready(function () {
 	});
 	$("button.copyjsonldtoclipboard").on({
 		"click": function() {
-			var index = $("#examples").children(".tabs").index($(this).parent().parent());
+			var index = $examples.children(".tabs").index($(this).parent().parent());
 			texttocopy = editors[index].CM1.getValue();
 			navigator.clipboard.writeText(texttocopy);
 			$(this).tooltip({ items: "#" + this.id, content: "Copied !"});
@@ -116,7 +120,7 @@ $(document).ready(function () {
 		}
 	});
 	$("button.openinplayground").on('click', function(e) {
-		var index = $("#examples").children(".tabs").index($(this).parent().parent());
+		var index = $examples.children(".tabs").index($(this).parent().parent());
 		newUrl = "https://json-ld.org/playground/#startTab=tab-expand&json-ld=" + editors[index].CM1.getValue(); 
 		window.open(encodeURI(newUrl), '_blank');
 		return false;
