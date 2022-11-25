@@ -4,9 +4,6 @@
   <xs:element name="LegalEntity" type="LegalEntityType"/>
   <xs:element name="Address" type="AddressType"/>
   <xs:element name="FormalOrganization" type="FormalOrganizationType"/>
-  <xs:simpleType name="Literal">
-    <xs:restriction base="xs:string"/>
-  </xs:simpleType>
   <xs:complexType name="langstring">
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -29,7 +26,7 @@
           <xs:documentation xml:lang="en">The date on which the Identifier was assigned.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="identifies" ref="LegalEntityType" maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="identifies" ref="LegalEntity" maxOccurs="unbounded" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="en">The entity that is referenced by the Identifier.</xs:documentation>
         </xs:annotation>
@@ -68,7 +65,7 @@
           <xs:documentation xml:lang="en">Any name by which a Legal Entity is known, other than their legal name.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="identifier" ref="IdentifierType" maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="identifier" ref="Identifier" maxOccurs="unbounded" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="en">The unambiguous structured reference for the Legal Entity, which is different from the one denoting its legal status.</xs:documentation>
         </xs:annotation>
@@ -88,7 +85,7 @@
           <xs:documentation xml:lang="en">The classification of the Legal Entity as a member of a particular group in the context of legal registration.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="legalIdentifier" ref="IdentifierType" maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="legalIdentifier" ref="Identifier" maxOccurs="unbounded" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="en">The unambiguous structured reference assigned to the Legal Entity by the legal authority that registered it.</xs:documentation>
         </xs:annotation>
@@ -98,7 +95,7 @@
           <xs:documentation xml:lang="en">The name under which the Legal Entity is legally registered.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="registeredAddress" ref="AddressType" maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="registeredAddress" ref="Address" maxOccurs="unbounded" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="en">The address at which the Legal Entity is legally registered.</xs:documentation>
         </xs:annotation>
